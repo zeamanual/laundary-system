@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link type="text/css" rel="stylesheet" th:ref="@{/css/login.css}">
+    <title>Login</title>
+</head>
+<body>
+    <section class="form my-4 mx-3">
+        <div class="container mx-auto" style="width: auto">
+  <div class="row no-gutters">
+    <div class="col-lg-5">
+        <img class="img-fluid"  src="images/image1.jpg" alt>
+    </div>
+    <div class="col-lg-7">
+        <form>
+        <div class="form-row mt-6 mx-auto" style="max-width: 600px;">
+            <div class="col-lg-12 mt-4">
+                <h1 class="lead text-center" ><strong>Login and reclaim laundry day!</strong></h1>
+            </div>
+            <div class="form-row mt-3">
+            <div class="col-12 pt-lg-3 pl-lg-2 ">
+                <div class="input-group mb-3 ">
+                    <span class="input-group-text" id="basic-addon1">@</span>
+                    <input type="email" class="form-control col-12" placeholder="Email" aria-label="email" aria-describedby="basic-addon1">
+                  </div>
+                </div>
+            </div>
+            <div class="form-row my-6">
+            <div class="col-12 pt-lg-3 pl-lg-2">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">🔐</span>
+                    <input type="password" class="form-control " placeholder="Password" aria-label="password" aria-describedby="basic-addon1">
+                  </div></div>
+            </div>
+            <div class="form-row my-12">
+            <div class="col-12 pt-lg-3 pl-lg-2">
+            <button type="button" class="btn btn-warning btn-lg-7 btn-block col-12">Log in</button>
+        </div>
+    </div></div>
+    <div class="py-3 mx-auto" style="width: 300px;" >
+    <P class="text-center" ><a class="text-warning" href="#">I Forgot my password?</a></P>
+    <p >Don't have an account?<a class="text-warning" href="#"> Register here!</a></p>
+       </div>
+        </form>
+        </div>
+        </div>
+    </div>
+    </section>
+    </div>
+    </div>
+    </div>
+  </div>
+</html>
