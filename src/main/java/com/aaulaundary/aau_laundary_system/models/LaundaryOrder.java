@@ -19,6 +19,8 @@ public class LaundaryOrder {
     private String date;
     private String paymentAmount;
     private boolean isCompleted;
+    private String doormDelivered;
+
     public LaundaryOrder(String date, String paymentAmount, boolean isCompleted) {
         this.date = date;
         this.paymentAmount = paymentAmount;

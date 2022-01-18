@@ -22,9 +22,14 @@ public class RecordServicesImplementation implements RecordService {
     }
 
     @Override
-    public String checkIfExists(String id) {
+    public String checkIfExists(String id,String name) {
+        name = name.toUpperCase();
         if(recordRepository.existsById(id)){
-            return "Found";
+            Record record = recordRepository.findById(id).get();
+            System.out.println(name + "*"+record.getName());
+            if (name.equals(record.getName())){
+                return "Found";
+            }   
         }
         return "NotFound";
     }

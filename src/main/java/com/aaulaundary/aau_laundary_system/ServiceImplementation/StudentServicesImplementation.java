@@ -26,7 +26,7 @@ public class StudentServicesImplementation implements StudentServices {
     public void updateStudent(String id, Student student) {
 
         if (studentRepository.existsById(id)){
-            studentRepository.save(student);
+            studentRepository.save(student); 
         }  
     }
 

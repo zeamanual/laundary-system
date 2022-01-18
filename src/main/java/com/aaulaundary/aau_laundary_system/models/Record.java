@@ -5,25 +5,26 @@ import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 
 @AllArgsConstructor
 @Entity
-@Data
+@Setter
+@Getter
 public class Record {
     @Id
     private String id;
-
-    public String getId() {
-        return id;
-    }
-
+    private String name;
     public Record() {
     }
-
-    public void setId(String id) {
-        this.id = id;
+    public Record(String name) {
+        this.name = name;
     }
+    
+
+    
 
 
     

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile Page</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="card">
+                   <div class="card-body">
+                      <div class="row">
+                         <div class="col">
+                          <img class="rounded mx-auto d-block" width="160px" src="../static/images/userprofile.png"/>
+                         </div>
+                      </div>
+                      <div class="row text-center">
+                         <div class="col">
+                          <h3>Hello ******</h3>
+                          <span>Account status-</span>
+                          <span><label class="badge bg-success" for="account status" >Active</label>
+                         </div>
+                      </div>
+                      <div class="row">
+                         <div class="col">
+                            <hr>
+                         </div>
+                      </div>
+                      <div class="row">
+                         <div class="col-md-6">
+                            <label class="form-label">User Name</label>
+                            <div >
+                              <input class="form-control" ID="TextBox1" placeholder="User Name"></input>
+                              </div>
+                         </div>
+                         <div class="col-md-6">
+                            <label class="form-label">Student ID</label>
+                            <div>
+                               <input Class="form-control" ID="TextBox2" placeholder="Student Id" type="text"></input>
+                            </div>
+                         </div>
+                      </div>
+                      <div class="row">
+                         <div class="col-md-6">
+                            <label class="form-label">Phone No</label>
+                            <div>
+                               <input Class="form-control" ID="TextBox3" placeholder="Phone No" type="text"></input>
+                            </div>
+                         </div>
+                         <div class="col-md-6">
+                            <label class="form-label">Email</label>
+                            <div >
+                               <input Class="form-control" ID="TextBox4" placeholder="Email" type="Email"></input>
+                            </div>
+                         </div>
+                      </div>
+                      <div class="row ">
+                         <div class="col text-center">
+                           <h3>
+                              <span class="badge rounded-pill bg-light text-dark">Login Credentials</span>
+                           </h3>  
+                         </div>
+                      </div>
+                      <div class="row">
+                         <div class="col-md-4">
+                            <label class="form-label">Member ID</label>
+                            <div class="form-control">
+                               <input class="form-control" ID="TextBox8" placeholder="member ID"></input>
+                            </div>
+                         </div>
+                         <div class="col-md-4">
+                            <label class="form-label">Password</label>
+                            <div class="form-control">
+                               <input class="form-control" ID="TextBox9" placeholder="Old Password" type="Password"></input>
+                            </div>
+                         </div>
+                         <div class="col-md-4">
+                            <label class="form-label">Password</label>
+                            <div class="form-control">
+                               <input class="form-control" ID="TextBox9" placeholder="New Password" type="Password"></input>
+                            </div>
+                         </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-8 mx-auto">
+                             <div class="form-control text-center ">
+                                    <button type="button" class="btn btn-block btn-primary">Update</button> 
+                             </div>
+                             <div class="form-control text-center">
+                                <button type="button" class="btn btn-danger">Delete Account</button>                               
+                             </div>
+                          </div>
+                       </div>   
+                   </div>
+                </div>              
+            </div>
+            <div class="col-md-7">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                            <img class="rounded mx-auto d-block" width="400px" src="../static/images/laundariedCloth.jpg"/>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col">
+                             <h3>Current and Past Laundary delivery Reports</h3>
+                            </div>
+                         </div>
+                         <div class="row">
+                            <div class="col">
+                               <hr>
+                            </div>
+                         </div>
+                         <div class="row">
+                             <div class="col">
+                                 <table class="table table-striped table-hover">
+                                    <thead>
+                                       <tr>
+                                          <th scope="col">#</th>
+                                         <th scope="col">Delivery Request Date</th>
+                                         <th scope="col">Number of Clothes</th>
+                                       </tr>
+                                     </thead>
+                                     <tbody>
+                                       <tr>
+                                          <th scope="row">1</th>
+                                          <td>25/11/2021</td>
+                                          <td>19</td>
+                                        </tr>
+                                        <tr>
+                                          <th scope="row">2</th>
+                                          <td>22/10/2021</td>
+                                          <td>8</td>
+                                        </tr> 
+                                       <tr>
+                                          <th scope="row">3</th>
+                                          <td>12/09/2021</td>
+                                          <td>16</td>
+                                        </tr>
+                                     </tbody>
+                                 </table>
+                             </div>
+                         </div>
+                    </div>
+                </div>            
+            </div>
+        </div>
+    </div>
+    <script src="../static/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -6,6 +6,7 @@ import java.util.List;
 import com.aaulaundary.aau_laundary_system.Repositories.CampusRepository;
 import com.aaulaundary.aau_laundary_system.Services.CampusService;
 import com.aaulaundary.aau_laundary_system.Services.ClotheServices;
+import com.aaulaundary.aau_laundary_system.Services.RecordService;
 import com.aaulaundary.aau_laundary_system.Services.StudentServices;
 import com.aaulaundary.aau_laundary_system.models.Campus;
 import com.aaulaundary.aau_laundary_system.models.Student;
@@ -26,15 +27,19 @@ public class StudentController {
 
     @Autowired
     private CampusService campusService;
+    @Autowired
     private StudentServices studentServices;
+    @Autowired
     private ClotheServices clotheServices;
+    @Autowired
+    private RecordService recordService;
 
- public StudentController(CampusService campusService, StudentServices studentServices,
-            ClotheServices clotheServices) {
-        this.campusService = campusService;
-        this.studentServices = studentServices;
-        this.clotheServices = clotheServices;
-    }
+//  public StudentController(CampusService campusService, StudentServices studentServices,
+//             ClotheServices clotheServices) {
+//         this.campusService = campusService;
+//         this.studentServices = studentServices;
+//         this.clotheServices = clotheServices;
+//     }
     @GetMapping("/sign-up")
     public String signUP(Model model) {
         Student student = new Student();
@@ -51,9 +56,21 @@ public class StudentController {
 
     @PostMapping("/sign-up")
     public String register(@ModelAttribute("student") Student student){
+        System.out.println(student);
+        String fullName = student.getFirstName()+" "+student.getLastName();
+        String id = student.getId();
+        String response = recordService.checkIfExists(id, fullName);
+        // System.out.println(response);
+        if(response.equals("Found")){
+            studentServices.saveStudent(student);
+            return "home";
+        }
+        else{
+
+            return "redirect:/sign-up";
+
+        }
         
-        
-        return "home";
     }
 
     
