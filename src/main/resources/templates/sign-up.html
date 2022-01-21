@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<html xmlns:th="http://www.thymeleaf.org" >
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
   <title>Registration</title>
@@ -14,7 +14,7 @@
         <div class="container mx-auto" style="width: auto">
   <div class="row no-gutters">
     <div class="col-lg-5">
-        <img class="img-fluid"  src="images/image1.jpg" alt>
+        <img class="img-fluid"  th:src="@{/images/image1.jpg}" alt>
     </div>
     <div class="col-lg-7">
     <div class="container col-auto mt-5 " style="max-width: 600px; height: auto; ">
@@ -45,7 +45,7 @@
             <div class="form-row mt-3">
                 <div class="col-12 pt-lg-3 pl-lg-2 ">
                     <div class="input-group mb-3 ">
-                        <input type="text" th:field= "*{id}" class="form-control col-12" placeholder="ID" aria-label="id" aria-describedby="basic-addon1">
+                        <input type="text" th:field= "*{username}" class="form-control col-12" placeholder="ID" aria-label="id" aria-describedby="basic-addon1">
                       </div>
                     </div>
                 </div>
@@ -68,16 +68,18 @@
                    <select th:field= "*{campus}" class = 'form-contro'>
                      <option th:each = " campus: ${campuses}" th:text = "${campus}" th:value="${campus}"></option>
                    </select>
-                  </div></div>
+                  </div>
+                </div>
             </div>
             <div class="form-row my-12">
             <div class="col-12 pt-lg-3 pl-lg-2">
             <button type="submit" class="btn btn-warning btn-lg-7 btn-block col-12 mb-2">SignUp</button>
         </div>
-          </form> 
-        
+        </div>
+          </form>
         </div>
       </div>
+    </div></div></div>
         </section>
 </body>
 </html>

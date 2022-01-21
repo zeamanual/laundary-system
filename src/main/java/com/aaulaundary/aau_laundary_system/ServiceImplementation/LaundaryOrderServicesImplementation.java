@@ -1,5 +1,7 @@
 package com.aaulaundary.aau_laundary_system.ServiceImplementation;
 
+import java.util.List;
+
 import com.aaulaundary.aau_laundary_system.Repositories.LaundaryOrderRepository;
 import com.aaulaundary.aau_laundary_system.Services.LaundaryOrderServices;
 import com.aaulaundary.aau_laundary_system.models.LaundaryOrder;
@@ -32,5 +34,15 @@ public class LaundaryOrderServicesImplementation implements LaundaryOrderService
         }  
         
     }
+
+    @Override
+    public List<LaundaryOrder> findAllOrder() {
+        return laundaryOrderRepository.findAll();
     
 }
+
+    @Override
+    public List<LaundaryOrder> findOrderByUsername(String username) {
+      
+        return laundaryOrderRepository.findOrderByUserName(username);
+    }}

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -5,25 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile Page</title>
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 </head>
 <body>
     <div class="container-fluid">
+       <form th:action = "@{/profile/update}" method = "POST">
         <div class="row">
             <div class="col-md-5">
                 <div class="card">
                    <div class="card-body">
                       <div class="row">
                          <div class="col">
-                          <img class="rounded mx-auto d-block" width="160px" src="../static/images/userprofile.png"/>
+                          <img class="rounded mx-auto d-block" width="160px" th:src="@{/images/userprofile.png}"/>
                          </div>
                       </div>
                       <div class="row text-center">
                          <div class="col">
-                          <h3>Hello ******</h3>
-                          <span>Account status-</span>
-                          <span><label class="badge bg-success" for="account status" >Active</label>
-                         </div>
+                          <h3 th:text="${user.firstName}"></h3>
+                                    </div>
                       </div>
                       <div class="row">
                          <div class="col">
@@ -32,31 +32,31 @@
                       </div>
                       <div class="row">
                          <div class="col-md-6">
-                            <label class="form-label">User Name</label>
+                            <label class="form-label">Name</label>
                             <div >
-                              <input class="form-control" ID="TextBox1" placeholder="User Name"></input>
+                              <input class="form-control" ID="TextBox1" th:field="${user.firstName}" placeholder="User Name"></input>
                               </div>
                          </div>
                          <div class="col-md-6">
                             <label class="form-label">Student ID</label>
                             <div>
-                               <input Class="form-control" ID="TextBox2" placeholder="Student Id" type="text"></input>
+                               <p Class="form-control" ID="TextBox2" th:text="${user.username}"placeholder="Student Id" type="text"></p>
                             </div>
                          </div>
                       </div>
                       <div class="row">
                          <div class="col-md-6">
-                            <label class="form-label">Phone No</label>
+                            <label class="form-label">Phone Number</label>
                             <div>
-                               <input Class="form-control" ID="TextBox3" placeholder="Phone No" type="text"></input>
+                               <input Class="form-control" ID="TextBox3" th:field="${user.phoneNumber}" placeholder="Phone No" type="text"></input>
                             </div>
                          </div>
                          <div class="col-md-6">
-                            <label class="form-label">Email</label>
-                            <div >
-                               <input Class="form-control" ID="TextBox4" placeholder="Email" type="Email"></input>
-                            </div>
-                         </div>
+                           <label class="form-label">Email</label>
+                           <div>
+                              <input Class="form-control" ID="TextBox3" th:field="${user.email}" placeholder="Phone No" type="text"></input>
+                           </div>
+                        </div>
                       </div>
                       <div class="row ">
                          <div class="col text-center">
@@ -66,44 +66,45 @@
                          </div>
                       </div>
                       <div class="row">
-                         <div class="col-md-4">
+                         <!-- <div class="col-md-4">
                             <label class="form-label">Member ID</label>
                             <div class="form-control">
                                <input class="form-control" ID="TextBox8" placeholder="member ID"></input>
                             </div>
-                         </div>
-                         <div class="col-md-4">
-                            <label class="form-label">Password</label>
-                            <div class="form-control">
-                               <input class="form-control" ID="TextBox9" placeholder="Old Password" type="Password"></input>
-                            </div>
-                         </div>
-                         <div class="col-md-4">
-                            <label class="form-label">Password</label>
-                            <div class="form-control">
-                               <input class="form-control" ID="TextBox9" placeholder="New Password" type="Password"></input>
-                            </div>
-                         </div>
-                      </div>
+                         </div> -->
+                         <div class="col-md-6">
+                           <label class="form-label">Phone Number</label>
+                           <div>
+                              <input Class="form-control" ID="TextBox3" th:field="${user.phoneNumber}" placeholder="Phone No" type="text"></input>
+                           </div>
+                        </div>
+
+                     </div>
                       <div class="row">
                           <div class="col-8 mx-auto">
                              <div class="form-control text-center ">
-                                    <button type="button" class="btn btn-block btn-primary">Update</button> 
+                                    <button type="submit" class="btn btn-block btn-primary">Update</button> 
                              </div>
+                             <form action="@{/profile/delete}" method="DELETE">
                              <div class="form-control text-center">
-                                <button type="button" class="btn btn-danger">Delete Account</button>                               
-                             </div>
+                              <!-- <a th:href= "@{/profile/deltete}" class="btn btn-danger">Delete Account</a>      -->
+                             <input type="submit" value="Delete">
+                           </form>                          
+                           </div>
+                           
                           </div>
                        </div>   
                    </div>
                 </div>              
             </div>
+         </form>
+     
             <div class="col-md-7">
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                            <img class="rounded mx-auto d-block" width="400px" src="../static/images/laundariedCloth.jpg"/>
+                            <img class="rounded mx-auto d-block" width="400px" th:src="@{/images/laundariedCloth.jpg}"/>
                             </div>
                         </div>
                         <div class="row text-center">
@@ -122,25 +123,15 @@
                                     <thead>
                                        <tr>
                                           <th scope="col">#</th>
-                                         <th scope="col">Delivery Request Date</th>
+                                         <th scope="col">Order Date</th>
                                          <th scope="col">Number of Clothes</th>
                                        </tr>
                                      </thead>
                                      <tbody>
-                                       <tr>
-                                          <th scope="row">1</th>
-                                          <td>25/11/2021</td>
-                                          <td>19</td>
-                                        </tr>
-                                        <tr>
-                                          <th scope="row">2</th>
-                                          <td>22/10/2021</td>
-                                          <td>8</td>
-                                        </tr> 
-                                       <tr>
-                                          <th scope="row">3</th>
-                                          <td>12/09/2021</td>
-                                          <td>16</td>
+                                       <tr th:each= "order: ${orders}">
+                                          <th scope="row" th:text = "${order.id}"></th>
+                                          <td th:text = "${order.date}">25/11/2021</td>
+                                          <td th:text = "${order.quantity}">19</td>
                                         </tr>
                                      </tbody>
                                  </table>
@@ -151,6 +142,6 @@
             </div>
         </div>
     </div>
-    <script src="../static/js/bootstrap.bundle.min.js"></script>
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>

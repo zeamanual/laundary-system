@@ -7,9 +7,9 @@ import com.aaulaundary.aau_laundary_system.Repositories.CampusRepository;
 import com.aaulaundary.aau_laundary_system.Services.CampusService;
 import com.aaulaundary.aau_laundary_system.Services.ClotheServices;
 import com.aaulaundary.aau_laundary_system.Services.RecordService;
-import com.aaulaundary.aau_laundary_system.Services.StudentServices;
+import com.aaulaundary.aau_laundary_system.Services.UserServices;
 import com.aaulaundary.aau_laundary_system.models.Campus;
-import com.aaulaundary.aau_laundary_system.models.Student;
+import com.aaulaundary.aau_laundary_system.models.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,7 +28,7 @@ public class StudentController {
     @Autowired
     private CampusService campusService;
     @Autowired
-    private StudentServices studentServices;
+    private UserServices studentServices;
     @Autowired
     private ClotheServices clotheServices;
     @Autowired
@@ -40,9 +40,22 @@ public class StudentController {
 //         this.studentServices = studentServices;
 //         this.clotheServices = clotheServices;
 //     }
+
+
+@GetMapping("/")
+public String home(Model model) {
+
+    return "home";
+}
+
+@GetMapping("/login")
+public String login(Model model) {
+
+    return "login";
+}
     @GetMapping("/sign-up")
     public String signUP(Model model) {
-        Student student = new Student();
+        User student = new User();
         List<Campus> campus = campusService.getAllCampus();
         List <String> campusNames = new ArrayList<>();
         for (int i = 0;i<campus.size();i++){
@@ -55,20 +68,20 @@ public class StudentController {
     }
 
     @PostMapping("/sign-up")
-    public String register(@ModelAttribute("student") Student student){
+    public String register(@ModelAttribute("student") User student){
         System.out.println(student);
         String fullName = student.getFirstName()+" "+student.getLastName();
-        String id = student.getId();
-        String response = recordService.checkIfExists(id, fullName);
+        String studentId = student.getUsername();
+        String response = recordService.checkIfExists(studentId, fullName);
+        boolean alreadyExists = studentServices.findUser(student.getUsername())!=null;
         // System.out.println(response);
-        if(response.equals("Found")){
-            studentServices.saveStudent(student);
+        // System.out.println(alreadyExists);
+        if(response.equals("Found") && !alreadyExists){
+            studentServices.saveUser(student);
             return "home";
         }
         else{
-
-            return "redirect:/sign-up";
-
+            return "faultySignup";
         }
         
     }

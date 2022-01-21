@@ -1,5 +1,7 @@
 package com.aaulaundary.aau_laundary_system.ServiceImplementation;
 
+import java.util.List;
+
 import com.aaulaundary.aau_laundary_system.Repositories.ClotheRepositiories;
 import com.aaulaundary.aau_laundary_system.Services.ClotheServices;
 import com.aaulaundary.aau_laundary_system.models.Clothe;
@@ -38,6 +40,11 @@ public class ClotheServicesImplementation implements ClotheServices {
         if(clotheRepositiories.existsById(id)){
             clotheRepositiories.deleteById(id);
         }
+    }
+
+    @Override
+    public List<Clothe> findAllClothes() {
+       return clotheRepositiories.findAll();
     }
     
 }
