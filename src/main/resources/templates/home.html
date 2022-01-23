@@ -8,9 +8,9 @@
     <title>Home</title>
 </head>
 <body class="d-flex flex-column min-vh-100" style="overflow-x:hidden; ">
-    <nav class="navbar navbar-expand-lg navbar-light row col-ms"style="background-color: rgb(172, 205, 238);">
+    <nav class="navbar navbar-expand-lg navbar-light row col-ms"style="background-color: #c8d8e4;">
         <div class="container-fluid ">
-            <a class="navbar-brand mx-2" href="#"><img th:src="@{images/image3.svg}" alt="Laundry logo"></a>
+            <a class="navbar-brand mx-2" href="#"><img class='img-fluid rounded-circle' style="width:60px" th:src="@{images/logo.svg}" alt="Laundry logo"></a>
             <button class="navbar-toggler mx-4" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon pb-lg-2 "></span>
             </button>
@@ -45,14 +45,14 @@
                      <div class="row h-100 justify-content-center align-items-center">
                      <h1 class="fs-4 fw-lighter text-reset"style="color: rgb(160, 154, 147) !important">SAVE UP TO 6 HOURS PER WEEK.</h1>
                      <p class="text-info" style="font-size: 3em !important;">Say Goodbye to Laundry Day.</p>
-                     <p class="fs-3">Rinse picks up, cleans, and delivers your laundry and dry cleaning.</p>
+                     <p class="fs-3">We pick up, cleans, and delivers your laundry and dry cleaning.</p>
                      <div class="col-12">
                      <a th:href="@{/login}"><button type="button" class="btn btn-primary btn-lg-7 btn-block col-5 mt-2 ">LOG IN</button></a>
                  </div></div>
                 </div>
               </div>
               <div class="col-lg-6 container">
-                   <img class="img-fluid my-3"  th:src="@{images/image1.jpg}" alt="man sitting on a couch">
+                   <img class="img-fluid my-3"  th:src="@{images/logo.svg}" alt="laundary image">
               </div>
             </div>
         </div>
@@ -236,24 +236,24 @@
 
     </section>
 </main>
-<footer class="mt-auto" style="background-color: rgb(172, 205, 238);">
+<footer class="mt-auto" style="background-color: #c8d8e4;">
     <div class="container-fluid">
     <div class="mx-auto text-center" style="max-width: 700px; border-top: 2px solid blueviolet;">
-        <a class="fs-2 text-secondary p-3 btn btn-link" href="#"><i class="fab fa-facebook"></i></a>
-        <a class="fs-2 text-secondary p-3 btn btn-link" href="#"><i class="fab fa-twitter"></i></a>
-        <a class="fs-2 text-secondary p-3 btn btn-link" href="#"><i class="fab fa-telegram"></i></a>
-        <a class="fs-2 text-secondary p-3 btn btn-link" href="#"><i class="fas fa-envelope"></i></a>
-        <a class="fs-2 p-3  text-secondary btn btn-link" href="#"><i class="fab fa-instagram-square"></i></a>
+        <a class="fs-2 p-3 btn btn-link" href="#"><i class="fab fa-facebook"></i></a>
+        <a class="fs-2 p-3 btn btn-link" href="#"><i class="fab fa-twitter"></i></a>
+        <a class="fs-2 p-3 btn btn-link" href="#"><i class="fab fa-telegram"></i></a>
+        <a class="fs-2 p-3  text-warning btn btn-link" href="#"><i class="fas fa-envelope"></i></a>
+        <a class="fs-2 p-3  text-danger btn btn-link" href="#"><i class="fab fa-instagram-square"></i></a>
     </div>
     <div class="container my-2 d-flex flex-wrap mx-auto row h-100 justify-content-center align-items-center">
       <div class="d-flex flex-column col-auto">
-        <p class="col-auto" ><a class="text-dark list-group-item-action rounded-pill btn btn-link " href="#">About Us</a></p>
-        <p class="col-auto"><a class="text-dark list-group-item-action rounded-pill btn btn-link"href="#">Contact Us</a></p>
+        <p class="col-auto" ><a class="text-dark text-decoration-none fs-5 list-group-item-action rounded-pill btn btn-link " href="#">About Us</a></p>
+        <p class="col-auto"><a class="text-dark text-decoration-none fs-5 list-group-item-action rounded-pill btn btn-link"href="#">Contact Us</a></p>
       </div> <div class="d-flex flex-column col-auto">
-        <p class="col-auto"><a class="text-dark list-group-item-action rounded-pill btn btn-link"href="#">Privacy</a></p>
-        <p class="col-auto"><a class="text-dark list-group-item-action rounded-pill btn btn-link" href="#">Terms</a></p>
+        <p class="col-auto"><a class="text-dark  fs-5 text-decoration-none list-group-item-action rounded-pill btn btn-link"href="#">Privacy</a></p>
+        <p class="col-auto"><a class="text-dark  fs-5 text-decoration-none list-group-item-action rounded-pill btn btn-link" href="#">Terms</a></p>
     </div></div>
-    <p class="text-center pl-6 text-dark mt-1">Copyright &copy; 2022 Rinse, Inc. All Rights Reserved</p>
+    <p class="text-center  fs-5 pl-6 text-dark mt-1">Copyright &copy; 2022 AAU laundary, Inc. All Rights Reserved</p>
 </div>
 </footer>
     <script th:src="@{https://kit.fontawesome.com/0605e8c2de.js}" crossorigin="anonymous"></script>

@@ -12,5 +12,8 @@ public interface LaundaryOrderServices {
     public void updateOrder(Long id,LaundaryOrder laundaryOrder);
     public List<LaundaryOrder> findAllOrder();
     public List<LaundaryOrder> findOrderByUsername(String username);
+    public List<LaundaryOrder> findbByRecentOrders ();
+    public int findOrderCount();
+    public float findTotalEarning();
 
 }

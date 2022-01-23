@@ -1,7 +1,9 @@
 package com.aaulaundary.aau_laundary_system.controllers;
 
 import java.security.Principal;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -66,10 +68,11 @@ public class OrderController {
 
        }
        themodel.addAttribute("total", total);
-       SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
-            Date date = new Date();  
-            System.out.println(formatter.format(date));
-            LaundaryOrder laundaryOrder = new LaundaryOrder();
+   
+          SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-yyyy HH:mm:ss");  
+           Date date = new Date();  
+           System.out.println(formatter.format(date));
+           LaundaryOrder laundaryOrder = new LaundaryOrder();
             order.setDate(formatter.format(date));
             order.setPaymentAmount(total);
             order.setQuantity(totalNumberOfClothes);

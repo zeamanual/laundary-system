@@ -16,6 +16,7 @@ public class ClotheServicesImplementation implements ClotheServices {
 
     @Override
     public Clothe saveClothe(Clothe clothe) {
+        clothe.setCategory(clothe.getCategory().toUpperCase());
         return clotheRepositiories.save(clothe);
     }
 

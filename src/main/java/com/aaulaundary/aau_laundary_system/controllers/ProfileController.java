@@ -50,11 +50,11 @@ public class ProfileController {
          String userID=user.getUsername();
 
           themodel.addAttribute("user",user);
-        //   System.out.println(user.getLastName());
-          System.out.println(user.getUsername());
+        
           List<LaundaryOrder> orders=laundaryOrderServices.findOrderByUsername(user.getUsername());
          themodel.addAttribute("order", orders);
-        return "profile_page";
+         System.out.println(order);
+        return "profile2";
     }
     @PostMapping("/profile/update")
     public String updateProfile(@ModelAttribute("user") User user){

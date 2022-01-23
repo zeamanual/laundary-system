@@ -45,4 +45,23 @@ public class LaundaryOrderServicesImplementation implements LaundaryOrderService
     public List<LaundaryOrder> findOrderByUsername(String username) {
       
         return laundaryOrderRepository.findOrderByUserName(username);
-    }}
+    }
+
+    @Override
+    public List<LaundaryOrder> findbByRecentOrders (){
+            return laundaryOrderRepository.findbByRecentOrders();
+    }
+
+    @Override
+    public int findOrderCount() {
+         return laundaryOrderRepository.findOrderCount();
+    
+    }
+
+    @Override
+    public float findTotalEarning() {
+        return laundaryOrderRepository.findTotalEarning();
+    }
+
+}
+
