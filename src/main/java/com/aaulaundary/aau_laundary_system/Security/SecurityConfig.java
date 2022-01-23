@@ -34,14 +34,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
       http
       .authorizeRequests()
-      .anyRequest()
+      .antMatchers("/admin","/orderDashBoard")
+      .hasRole("ADMIN")
+      .antMatchers("/order")
       .authenticated()
+      .anyRequest()
+      .permitAll()
       .and()
       .formLogin()
       .loginPage("/login")
-      .permitAll();
+      .failureForwardUrl("/loginFailled")
+      .permitAll()
+      .and()
+      .logout().permitAll()
+      .logoutSuccessUrl("/");
    
     }
+
+
+    
 
 
 }

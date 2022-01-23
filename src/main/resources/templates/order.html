@@ -9,11 +9,11 @@
 </head>
 <body>
     <div class="container text-center mt-5">
+        <form th:action="@{/order}" method="POST">
         <h1 class="text-info">Order submit form</h1>
         <div class="row">
             <div class="col-lg-6">
              <h2 class="mt-5 text-primary">Select cloth type</h2>
-             <form th:action="@{/order}" method="POST">
                 <div th:each = "cloth:${clothes}"  class="shadow p-3 mb-5 bg-white rounded">
                             <div class="d-flex justify-content-center">
                                 <span th:text = "${cloth.category}" class="m-3"></span> <p th:text = "${cloth.washPrice}" class="m-3"></p>
@@ -22,21 +22,11 @@
                                 <label id="basic-addon1" class="m-3">Quantity:</label>
                                 <input type="number" th:name="value" class="col-sm-1 m-3"aria-label="email" aria-describedby="basic-addon1" for="basic-addon1" min="0" step="1" oninput="validity.valid||(value='');">
                             </div>
-                </div>
-
-                <input type="submit" class="btn my-4 btn-warning btn-lg-5 btn-block col-4"></b>
-        
-           
-            
+                </div>      
              </div>
             
              
             <div class="col-lg-6">
-                <!-- <h2 th:text = "${show}"></h2>
-                <div th:if = "${show} =='show'">
-
-                    <h2 th:text = "${total}"></h2>
-             </div> -->
               <h2 class="mt-5 text-primary">Fill delivery details</h2>
               <div class="shadow p-3 mb-5 bg-white rounded">
               <div  th:object = "${order}"class="d-flex justify-content-center">
@@ -56,10 +46,16 @@
                    </select>
             </div></div>
             </div>
-        </form>
+        
+          </div>
+          <div class="row">
+              <div class="text-center">
+                <input type="submit" class="btn my-4 btn-warning btn-lg-5 btn-block col-4"></b>
+              </div>
+            
           </div>
           
-         
+        </form>
     </div>
     </div>
     

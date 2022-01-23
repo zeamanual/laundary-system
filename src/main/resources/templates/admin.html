@@ -45,7 +45,7 @@
             </a>
           </li>
           <li class="nav-item my-1 ">
-            <a class="nav-link list-group-item-action rounded-pill btn btn-link " href="#">
+            <a class="nav-link list-group-item-action rounded-pill btn btn-link " th:href="@{/logout}">
              <i class="fas fa-sign-out-alt"></i> 
               Log out
             </a>
@@ -172,7 +172,7 @@
                               <form th:object = "${holder}" th:action = "@{/cloth/update}" method ="POST">
                                 <h1 class="fs-4 text-center text-secondary">Update the Cost for cloth type</h1>
                             <div th:each = "cloth, additional :*{clothes}" class="row justify-content-center align-items-center shadow bg-white rounded my1">
-                              <input readonly th:field= "*{clothes[__${additional.index}__].category}" class="col-6 no-border"></input>
+                              <input readonly th:field= "*{clothes[__${additional.index}__].category}" class="col-6 border-0"></input>
                               <div class="col-md-4 ">
                                   <input th:field="*{clothes[__${additional.index}__].washPrice}" type="text" class="col-6 m-2">
                               </div>
@@ -210,12 +210,22 @@
                             <div class="shadow bg-white rounded my-1">
                             <div class="row justify-content-center align-items-center">
                               <div class="col-md-auto">Cloth type</div>
-                              <select th:field= "*{clothToBeDeleted}" class = 'class="col-md-4 "'>
-                                <option th:each = " cloth: ${clothes}" th:text = "${cloth.category}" th:value="${cloth.category}" class="col-sm-12 m-3"></option>
-                              </select>
+                              <div class="col-md-auto">
+                                <select th:field= "*{clothToBeDeleted}" class = 'class="col-md-4 "'>
+                                  <option th:each = " cloth: ${clothes}" th:text = "${cloth.category}" th:value="${cloth.category}" class="col-sm-12 m-3"></option>
+                                </select>
+
+                              </div>
+                           
+                            </div>
+                            <div class="row">
+                              <div class="text-center">
+                                <input class = "btn btn-primary my-2" type = "submit" value = "Delete">
+
+                              </div>
                             </div>
 
-                            <input class = "btn btn-primary my-2" type = "submit" value = "Delete">
+                           
                            
                             </div>
                           </form>
@@ -224,7 +234,6 @@
                         </div>
                         <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close1">CLOSE</button>
-                                <button type="button" class="btn btn-primary">UPDATE CHANGES</button>
                               </div>
                               </div>
                             </div>

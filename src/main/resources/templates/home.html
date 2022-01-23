@@ -23,16 +23,33 @@
                   <a class="nav-link text-dark list-group-item-action rounded-pill btn btn-link" th:href="@{/profile}" >Profile</a>
                 </li>
                 <li class="nav-item mx-3">
-                  <a class="nav-link text-dark list-group-item-action rounded-pill btn btn-link" th:href="@{/contact}" >Contact</a>
-                </li>
-                <li class="nav-item mx-3">
                   <a class="nav-link text-dark list-group-item-action rounded-pill btn btn-link" th:href="@{/sign-up}"  >Register</a>
                 </li>
                 <li class="nav-item mx-3">
                   <a class="nav-link text-dark list-group-item-action rounded-pill btn btn-link" th:href="@{/order}" >order</a>
                 </li>
               </ul>
-                <a th:href="@{\login}"><button class="btn btn-outline-primary  text-dark " type="button">Log in</button></a>
+             
+
+              <div th:switch="${status}">
+                <div th:case="loggedin">
+                  <div th:switch="${user.role}">
+                    <div th:case="ADMIN">
+                      <a th:href="@{\admin}"><button class="btn my-2 btn-outline-primary  text-dark " type="button">Admin DashBoard</button></a>
+    
+                    </div>
+                   
+    
+                  </div>
+                  <a th:href="@{\logout}"><button class="btn btn-outline-primary  text-dark " type="button">Logout</button></a>
+
+
+
+                </div>
+                <a th:case="signedout" th:href="@{\login}"><button class="btn btn-outline-primary  text-dark " type="button">Log in</button></a>
+               
+              </div>
+               
         </div>
         </div>
     </nav>
@@ -47,7 +64,12 @@
                      <p class="text-info" style="font-size: 3em !important;">Say Goodbye to Laundry Day.</p>
                      <p class="fs-3">We pick up, cleans, and delivers your laundry and dry cleaning.</p>
                      <div class="col-12">
-                     <a th:href="@{/login}"><button type="button" class="btn btn-primary btn-lg-7 btn-block col-5 mt-2 ">LOG IN</button></a>
+
+                      <div th:switch="${status}">
+                        <a th:case="loggedin" th:href="@{/order}"><button type="button" class="btn btn-primary btn-lg-7 btn-block col-5 mt-2 ">Order Now</button></a>
+                        <a th:case="signedout" th:href="@{/login}"><button type="button" class="btn btn-primary btn-lg-7 btn-block col-5 mt-2 ">LOG IN</button></a>
+                      </div>
+                    
                  </div></div>
                 </div>
               </div>

@@ -25,25 +25,25 @@
             <div class="col-12 pt-lg-3 pl-lg-2 ">
                 <div class="input-group mb-3 ">
                     <!-- <span class="input-group-text" id="basic-addon1">@</span> -->
-                    <input type="text" name = "username" class="form-control col-12" placeholder="username" aria-label="username" aria-describedby="basic-addon1">
+                    <input type="text" name = "username" class="form-control col-12" placeholder="Student ID" aria-label="username" aria-describedby="basic-addon1">
                   </div>
                 </div>
             </div>
             <div class="form-row my-6">
             <div class="col-12 pt-lg-3 pl-lg-2">
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">🔐</span>
                     <input type="password" name="password" class="form-control " placeholder="Password" aria-label="password" aria-describedby="basic-addon1">
                   </div></div>
             </div>
             <div class="form-row my-12">
             <div class="col-12 pt-lg-3 pl-lg-2">
+            <p  th:if="${message} == 'Error'" class = "alert alert-danger">ID or Password Incorrect. Try Again</p>
             <button type="submit" class="btn btn-warning btn-lg-7 btn-block col-12">Log in</button>
         </div>
     </div></div>
     <div class="py-3 mx-auto" style="width: 300px;" >
     <P class="text-center" ><a class="text-warning" href="#">I Forgot my password?</a></P>
-    <p >Don't have an account?<a class="text-warning" href="#"> Register here!</a></p>
+    <p >Don't have an account?<a class="text-warning" th:href="@{/sign-up}"> Register here!</a></p>
        </div>
         </form>
         </div>

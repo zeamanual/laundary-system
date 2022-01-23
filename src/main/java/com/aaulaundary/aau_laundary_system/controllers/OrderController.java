@@ -76,7 +76,6 @@ public class OrderController {
             order.setDate(formatter.format(date));
             order.setPaymentAmount(total);
             order.setQuantity(totalNumberOfClothes);
-            // laundaryOrderServices.saveLaundarOrder(order); 
             Object auth = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             String username;
             if (auth instanceof UserDetails) {

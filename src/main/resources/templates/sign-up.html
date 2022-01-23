@@ -18,21 +18,33 @@
     </div>
     <div class="col-lg-7">
     <div class="container col-auto mt-5 " style="max-width: 600px; height: auto; ">
+      <div class="text-center my-3" th:switch="${message}">
+
+        <p class="alert alert-warning h4" th:case="'NOT FOUND'">Your ID Can Not Be Found</p>
+        <p class="alert alert-warning h4" th:case="'ALREADY EXISTS'">Student ID Already Registered</p>
+        <p class="alert alert-success h4" th:case="'COMPLETE'">Regisration Completed</p>
+      </div>
+
         <h1 class="text-center">SignUp here!</h1>
+        
         <div class="row h-100 justify-content-center align-items-center">
         <form th:object = "${student}" th:action="@{/sign-up}" method = "POST" >
             <div class="form-row mt-3">
                 <div class="col-12 pt-lg-3 pl-lg-2 ">
                     <div class="input-group mb-3 ">
-                        <input type="text" class="form-control col-12" th:field="*{firstName}" placeholder="Firstname" aria-label="username" aria-describedby="basic-addon1">
+                        <input name='firstName' type="text" class="form-control col-12" th:field="*{firstName}" placeholder="Firstname" aria-label="username" aria-describedby="basic-addon1">
                       </div>
+                      <p class = "alert alert-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></p>
+                     
                     </div>
                 </div>
                 <div class="form-row mt-3">
                   <div class="col-12 pt-lg-3 pl-lg-2 ">
                       <div class="input-group mb-3 ">
-                          <input type="text" class="form-control col-12" th:field="*{lastName}" placeholder="Lastname" aria-label="username" aria-describedby="basic-addon1">
+                          <input  type="text" class="form-control col-12" th:field="*{lastName}" placeholder="Lastname" aria-label="username" aria-describedby="basic-addon1">
                         </div>
+                        <p class = "alert alert-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></p>
+                     
                       </div>
                   </div>
           <div class="form-row mt-3">
@@ -40,6 +52,8 @@
                 <div class="input-group mb-3 ">
                     <input type="email" th:field= "*{email}" class="form-control col-12" placeholder="Email" aria-label="email" aria-describedby="basic-addon1">
                   </div>
+                  <p class = "alert alert-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+                     
                 </div>
             </div>
             <div class="form-row mt-3">
@@ -47,13 +61,17 @@
                     <div class="input-group mb-3 ">
                         <input type="text" th:field= "*{username}" class="form-control col-12" placeholder="ID" aria-label="id" aria-describedby="basic-addon1">
                       </div>
+                      <p class = "alert alert-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+                     
                     </div>
                 </div>
                 <div class="form-row mt-3">
                     <div class="col-12 pt-lg-3 pl-lg-2 ">
                         <div class="input-group mb-3 ">
-                            <input type="text" th:field="*{phoneNumber}" class="form-control col-12" placeholder="Phone Number" aria-label="Phone Number" aria-describedby="basic-addon1">
+                            <input type="text" th:field="*{phoneNumber}" class="form-control col-12" placeholder="Phone Number eg. 09..." aria-label="Phone Number" aria-describedby="basic-addon1">
                           </div>
+                          <p class = "alert alert-danger" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></p>
+                     
                         </div>
                     </div>
                     <div class="form-row my-6">
@@ -61,6 +79,7 @@
                           <div class="input-group mb-3">
                               <input type="password" th:field= "*{password}" class="form-control " placeholder="Password" aria-label="password" aria-describedby="basic-addon1">
                             </div></div>
+                            <p class = "alert alert-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
                       </div>
             <div class="form-row my-6">
             <div class="col-5 pt-lg-3 pl-lg-2">
